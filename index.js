@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const { readFile } = require('fs').promises
 
+app.use(express.static(__dirname + '/css'))
+
 app.get('/', async (request, response) => {
   response.send(await readFile('./index.html', 'utf8'))
 })
